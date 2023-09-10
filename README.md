@@ -26,29 +26,87 @@ A full subtractor is a combinational circuit that performs subtraction involving
 Diff = A ⊕ B ⊕ Bin B = A'Bin + A'B + BBin
 
 ## Procedure
+Create a New Project:
 
+Open Quartus and create a new project by selecting "File" > "New Project Wizard."
+Follow the wizard's instructions to set up your project, including specifying the project name, location, and target device (FPGA).
+Create a New Design File:
 
+Once the project is created, right-click on the project name in the Project Navigator and select "Add New File."
+Choose "Verilog HDL File" or "VHDL File," depending on your chosen hardware description language.
+Write the Combinational Logic Code:
 
-Write the detailed procedure here 
+Open the newly created Verilog or VHDL file and write the code for your combinational logic.
+Compile the Project:
 
+To compile the project, click on "Processing" > "Start Compilation" in the menu.
+Quartus will analyze your code, synthesize it into a netlist, and perform optimizations based on your target FPGA device.
+Analyze and Fix Errors:*
+
+If there are any errors or warnings during the compilation process, Quartus will display them in the Messages window.
+Review and fix any issues in your code if necessary.
+View the RTL diagram.
+6.*Verification:
+
+Click on "File" > "New" > "Verification/Debugging Files" > "University Program VWF".
+Once Waveform is created Right Click on the Input/Output Panel > " Insert Node or Bus" > Click on Node Finder > Click On "List" > Select All.
+Give the Input Combinations according to the Truth Table amd then simulate the Output Waveform.
 
 ## Program:
+```
+
 /*
 Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
+Developed by: Ritika S
+RegisterNumber: 212221240046
 */
+```
+### Half Subtractor
+```
+module hs(a,b,Diff,Borrow);
+input a,b;
+output Diff,Borrow;
+assign Diff = (a^b);
+assign Borrow = (~a&b);
+endmodule
+```
+### Full Subtractor
+```
+module fs(A,B,Bin,diff,borrow);
+input A,B,Bin;
+output diff,borrow;
+assign diff=(A^B^Bin);
+assign borrow=((~A&B)|(~(A^B)&Bin));
+endmodule
+```
 
 ## Output:
+## RTL diagram:
+ 
+ ### Half Subtractor
+ ![Output](pic1.png)
 
-## Truthtable
+ ### Full Subtractor
+ ![Output](pic3.png)
 
+## Truthtable:
 
+ ### Half suubtractor
 
-##  RTL realization
+ ![Output](pic5.png)
 
+ ### Full Subtractor
 
-## Timing diagram 
+ ![Output](pic6.png)
+
+## Timing Diagram:
+
+### Half suubtractor
+ ![Output](pic2.png)
+
+### Full Subtractor
+![Output](pic4.png)
+
 
 ## Result:
 Thus the half subtractor and full subtractor circuits are designed and the truth tables is verified using quartus software.
